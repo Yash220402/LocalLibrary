@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+import uuid
 
 
 class Genre(models.Model):
@@ -29,7 +30,9 @@ class Book(models.Model):
     genre = models.ManyToManyField(Genre, help_text="Select a genre for this book")
 
     def __str__(self):
-        """String for representing the Model object"""4
+        """String for representing the Model object"""
         return self.title
     
     def get_absolute_url(self):
+        """Returns the URL to access a details record for this book."""
+        return reverse("book-detail", args=[str(self.id)])
