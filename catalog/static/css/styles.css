@@ -3,3 +3,8 @@
     padding: 0;
     list-style: none;
 }
+
+.sidebar-border {
+    border-right: 2px solid black;
+
+}
