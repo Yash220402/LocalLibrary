@@ -1,4 +1,6 @@
+from multiprocessing.forkserver import read_signed
 from turtle import title
+from urllib import request
 from django.shortcuts import render
 from .models import Book, Author, BookInstance, Genre
 from django.views import generic
@@ -15,9 +17,6 @@ class BookListView(generic.ListView):
         # create any data and add it to context
         context['some_data'] = "This is just some data"
         return context
-
-class BookDetailView(generic.DetailView):
-    model = Book
 
 # Create your views here.
 def index(request):
@@ -46,3 +45,12 @@ def index(request):
 
     # render the HTML template index.html with the data in the context variable
     return render(request, 'index.html', context=context)
+
+from django.shortcuts import get_object_or_404
+class BookDetailView(generic.DetailView):
+    model = Book
+
+    def book_detail_view(request, primary_key):
+        book = get_object_or_404(Book, pk=primary_key)
+        return render(request, 'catalog/book_detail.html', context={'book': book})
+        
