@@ -92,7 +92,7 @@ class Author(models.Model):
 
     def get_absolute_url(self):
         """Returns the URL to access a particular author instance."""
-        return reverse('author-details', args=[str(self.id)])
+        return reverse('author-detail', args=[str(self.id)])
 
     def __str__(self):
         return f"{self.last_name}, {self.first_name}"
