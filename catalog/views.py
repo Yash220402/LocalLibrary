@@ -34,8 +34,4 @@ class BookListView(generic.ListView):
     model = Book
 
 class BookDetailView(generic.DetailView):
-    model = Book 
-
-    def book_detail_view(request, primary_key):
-        book = get_object_or_404(Book, pk=primary_key)
-        return render(request, "catalog/book_detail.html", context={'book': book})
+    model = Book
