@@ -2,7 +2,6 @@ from django.db import models
 from django.urls import reverse
 import uuid
 
-
 class Genre(models.Model):
     """Model representing a book genre"""
     name = models.CharField(max_length=200, help_text="Enter a book genre")
@@ -96,3 +95,18 @@ class Author(models.Model):
 
     def __str__(self):
         return f"{self.last_name}, {self.first_name}"
+
+
+# # CREATING TEST USER FOR AUTHENTICATION
+# from django.contrib.auth.models import User
+
+# # create user and save to the db
+# user = User.objects.create_user(
+#     'Aztec220402',  # username
+#     'aztec220402@gmail.com',  # user email
+#     '123456')  # password
+
+# # Update the fields and then save again
+# user.first_name = 'Harold'
+# user.last_name = 'Cortez'
+# user.save() 
