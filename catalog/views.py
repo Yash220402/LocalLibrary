@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .models import Book, Author, BookInstance, Genre
 from django.views import generic
-from django.shortcuts import get_object_or_404
 
 # Create your views here.
 def index(request):
@@ -32,6 +31,7 @@ def index(request):
 
 class BookListView(generic.ListView):
     model = Book
+    paginate_by = 2
 
 class BookDetailView(generic.DetailView):
     model = Book
