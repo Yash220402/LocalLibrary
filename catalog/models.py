@@ -82,6 +82,7 @@ class BookInstance(models.Model):
         """Determines if the book is overdue on due date and current date"""
         return bool(self.due_back and date.today() > self.due_back)
 
+    
     def __str__(self):
         """String for representing the Model object"""
         return f"{self.id} ({self.book.title})"
@@ -102,6 +103,8 @@ class Author(models.Model):
 
     def __str__(self):
         return f"{self.last_name}, {self.first_name}"
+
+
 
 
 # # CREATING TEST USER FOR AUTHENTICATION
